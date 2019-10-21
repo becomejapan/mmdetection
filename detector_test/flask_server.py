@@ -23,9 +23,14 @@ def detect_masks(img, out_file):
     result = inference_detector(model, img)
     show_result(img, result, model.CLASSES, score_thr=score_thr, show=False, out_file=out_file)
 
-
+# Cascade Mask-RCNN
 config_file = '../my_configs/cascade_mask_rcnn_r50_fpn_1x.py'
 checkpoint_file = '../work_dirs/modanet_cascade_mask_rcnn_r50_fpn_1x/latest.pth'
+
+# Mask-RCNN
+# config_file = '../my_configs/mask_rcnn_r50_fpn_1x.py'
+# checkpoint_file = '../work_dirs/modanet_mask_rcnn_r50_fpn_1x/latest.pth'
+
 score_thr = 0.85
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
